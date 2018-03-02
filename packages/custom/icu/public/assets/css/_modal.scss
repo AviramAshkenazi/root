@@ -33,6 +33,18 @@
                         width: 100%;
                         height: 100%;
                     }
+                    span {
+                        &.name {
+                            top: 50%;
+                            position: relative;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            display: block;
+                            text-align: center;
+                            font-size: 25px;
+
+                        }
+                    }
                 }
                 .closeBtn {
                     border: none;
@@ -94,12 +106,12 @@
             }
         }
         .modal-body {
-            padding: 15px 0;
+            padding: 15px 0 0;
             &#modalUser {
-                height: 700px;
+                min-height: 344px;
                 background-color:#FCFBF6;
                 .general {
-                    height: 303px;
+                    min-height: 303px;
                     border-bottom: 1px solid #DDDDDD;
                     .title {
                         display: block;
@@ -113,9 +125,41 @@
                         display: flex;
                         flex-direction: row;
                         width:50%;
-                        height: 350px;
+                        min-height: 266px;
                         padding-left: 25px;
                         .info {
+                            .changePassword {
+                                .form-group {
+                                    margin: auto 0 15px;
+                                    button {
+                                        display: block;
+                                        margin: 0 auto 25px;
+                                        position: relative;
+                                        left: -50%;
+                                        transform: translateX(50%);
+                                        background-color: #EAEAE4;
+                                        border: 1px solid #D9D9D8;
+                                    }
+                                    label {
+                                        padding-left: 0;
+                                    }
+                                }
+                                span {
+                                    &.title {
+                                        padding-left: 0;
+                                        margin-left: 0;
+                                    }
+                                }
+                            }
+                            .panel-collapse {
+                                .panel-body {
+                                    padding: 0;
+                                    p {
+                                        padding-bottom: 15px;
+                                        margin-left: 0;
+                                    }
+                                }
+                            }
                             .changePass {
                                 color: #FFA000;
                                 background-color: inherit;
@@ -159,6 +203,18 @@
                                         border-radius: 50%;
                                         width:115px;
                                         height:115px;
+                                        span {
+                                            &.name {
+                                                top: 50%;
+                                                position: relative;
+                                                left: 50%;
+                                                transform: translate(-50%, -50%);
+                                                display: block;
+                                                text-align: center;
+                                                font-size: 45px;
+
+                                            }
+                                        }
                                         .image {
                                             width: 100%;
                                             border-radius: 50%;
@@ -213,24 +269,14 @@
                         }
                     }
                     .hint {
-                        font-size: 13px;
-                        line-height: 18px;
+                        margin-bottom: 40px;
+                        margin-top: 13px;
+                        display: block;
                     }
                     .filters {
                         .filter {
                             .form-group {
-                                .col-lg-5 {
-                                    .dropdown {
-                                        .ui-select-match{
-                                            .btn {
-                                                &span {
-                                                    border: 1px solid #D9D9D9;
-                                                    border-radius: 0;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
+
                                 label {
                                     display: block;
                                     margin-top: 20px;
@@ -238,15 +284,97 @@
                                 div {
                                     padding-left: 0;
                                 }
+
+                            }
+                        }
+                    }
+                    .ui-select-bootstrap {
+                        background-color: black;
+
+                        .ui-select-match {
+                            span {
+                                &.btn {
+                                    border: 1px solid #D9D9D9;
+                                    position: relative;
+                                    border-radius: 0;
+                                    width: 265px;
+                                    margin-right: 45px;
+                                    left: -543px;
+                                }
                             }
                         }
                     }
                 }
-            }
-        }
-        .modal-footer {
-            &#modalUser {
+                .notification {
+                    height: 330px;
+                    padding-left:25px;
+                    .hint {
+                        margin-bottom: 40px;
+                        display: block;
+                    }
+                    .line {
+                        label {
+                            display: block;
+                        }
+                        .title {
+                            display: block;
+                            font-size: 14px;
+                            line-height: 19px;
+                        }
+                        .hint {
+                            font-weight: normal;
+                            font-weight: normal;
+                            font-size: 13px;
+                            line-height: 18px;
+                        }
+                    }
+                    .ui-select-bootstrap {
+                        width: 265px;
+                        height: 10px;
+                        left: 70%;
+                        margin: -85px 0 0;
+                        padding: 0;
+                        position: absolute;
 
+                        .ui-select-choices-row {
+                            .active {
+                                a{
+                                    background-color: #D9D9D9;
+                                }
+                            }
+                        }
+
+                        .form-control {
+                            width: 265px;
+                            position: relative;
+                            margin-left: -45px;
+                            border-radius: 0;
+                            border: 1px solid #D9D9D9;
+                        }
+
+                        .ui-select-match {
+                            .btn {
+                                border: 1px solid #D9D9D9;
+                                position: relative;
+                                border-radius: 0;
+                                width: 265px;
+                                margin-right: 45px;
+                            }
+                        }
+                        .ui-select-choices {
+                            border: 1px solid #D9D9D9;
+                            width: 100%;
+                            left: -45px;
+                            top: 34px;
+                            position: absolute;
+                            border-radius: 0;
+
+                        }
+                        .form-control {
+                            width: 265px;
+                        }
+                    }
+                }
             }
         }
     }
@@ -254,7 +382,6 @@
     #dragcontainer {
         width: 200px;
         height: 44px;
-        background-color: white;
         position: relative;
         display: block;
         border: 2px solid #ddd;
