@@ -240,7 +240,7 @@ angular.module('mean.icu.ui.taskdetails', [])
                     ActivitiesService.data.push(result);
                 });
 
-                var state = context.entityName === 'all' ? 'main.tasks.all' : context.entityName === 'my' ? 'main.tasks.byassign' : 'main.tasks.byentity';
+                var state = $state.current.name;
                 $state.go(state, {
                     entity: context.entityName,
                     entityId: context.entityId
@@ -259,7 +259,7 @@ angular.module('mean.icu.ui.taskdetails', [])
                     ActivitiesService.data.push(result);
                 });
 
-                var state = 'main.tasks.all' ;
+                var state = $state.current.name;
                 $state.go(state, {
                     entity: context.entityName,
                     entityId: context.entityId

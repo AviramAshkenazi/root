@@ -322,7 +322,8 @@ angular.module('mean.icu.ui.projectdetails', [])
                     ActivitiesService.data.push(result);
                 });
 
-                $state.go('main.projects.all', {
+                var state = $state.current.name;
+                $state.go(state, {
                     entity: 'all'
                 }, {reload: true});
 
@@ -337,7 +338,7 @@ angular.module('mean.icu.ui.projectdetails', [])
                     ActivitiesService.data.push(result);
                 });
 
-                var state = 'main.projects.all' ;
+                var state = $state.current.name;
                 $state.go(state, {
                     entity: context.entityName,
                     entityId: context.entityId
