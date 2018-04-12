@@ -4,7 +4,7 @@ angular.module('mean.icu.ui.sidepane', []).
 directive('icuSidepane', function() {
     function controller($scope, $state, $stateParams,SettingServices, $filter, $location, $rootScope,
         context, SearchService, EntityService,
-        NotifyingService, TasksService
+        NotifyingService, TasksService, hotkeys
     ){
         $scope.context = context;
         $scope.recycled = $location.path().split("/").pop() === "recycled";
@@ -31,6 +31,13 @@ directive('icuSidepane', function() {
             TasksService.filterValue = false;
         };
 
+        hotkeys.add({
+            combo: 'ctrl+up',
+            description: 'TEST',
+            callback: function() {
+                console.log('*********HOTKEYS_WORKS*********');
+            }
+        });
 
         // updatedDate
         var now = new Date();

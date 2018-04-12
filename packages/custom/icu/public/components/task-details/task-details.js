@@ -18,6 +18,7 @@ angular.module('mean.icu.ui.taskdetails', [])
                                                   $timeout,
                                                   ProjectsService,
                                                   EntityService,
+                                                  hotkeys,
                                                   me //,subtasks
     ) {
         $scope.testString = 'testString';
@@ -623,6 +624,29 @@ angular.module('mean.icu.ui.taskdetails', [])
                 $state.current.name === 'main.tasks.byassign.details')) {
             $state.go('.activities');
         }
+
+        hotkeys.add({
+            combo: 'tab+backspace',
+            description: 'Delete task',
+            callback: function() {
+                $scope.recycle($scope.task);
+            }
+        });
+        hotkeys.add({
+            combo: 'tab+d',
+            description: 'Set due date',
+            callback: function() {
+                $scope.open();
+            }
+        });
+        hotkeys.add({
+            combo: 'tab+m',
+            description: 'assign me',
+            callback: function() {
+                $scope.task.assign = me._id;
+                $scope.updateAndNotify($scope.task);
+            }
+        });
     })
     .directive('selectOnBlur', function($timeout) {
         return {

@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('mean.icu.ui.tasklistdirective', ['dragularModule'])
-    .directive('icuTaskList', function ($state, $uiViewScroll, $stateParams, $timeout, context, UsersService, LayoutService) {
+    .directive('icuTaskList', function ($state, $uiViewScroll, $stateParams, $timeout, context, UsersService,
+                                        LayoutService, hotkeys) {
         var creatingStatuses = {
             NotCreated: 0,
             Creating: 1,
@@ -234,7 +235,7 @@ angular.module('mean.icu.ui.tasklistdirective', ['dragularModule'])
                         entityId: context.entityId
                     });
                 });
-            };
+                            };
 
         }
 
@@ -374,6 +375,16 @@ angular.module('mean.icu.ui.tasklistdirective', ['dragularModule'])
                     });
                 }
             };
+
+            hotkeys.add({
+                combo: 'TAB+q',
+                description: 'Quick add task',
+                callback: function() {
+                    $scope.initialize('', $scope.tasks[$scope.tasks.length-1]);
+                    $scope.currentTaskId($scope.tasks[$scope.tasks.length-1]._id);
+                }
+            });
+
         }
 
 
